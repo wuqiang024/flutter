@@ -1,54 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart' show debugPaintSizeEnabled;
 
-void main(
-    ) {
-  debugPaintSizeEnabled = true;
-  runApp(MyApp());
-}
+void main() => runApp(ButtonWidget());
 
-class MyApp extends StatelessWidget {
+class ButtonWidget extends StatelessWidget {
   @override
-  Widget build(
-      BuildContext context
-      ) {
+  Widget build(BuildContext context) {
     return MaterialApp(
         home: Scaffold(
             body: Center(
-              child: Wrap(
-                children: <Widget>[
-                  buildRaisedButton(
-                  )
-                ],
-                ),
-              )
-            )
-        );
-  }
+                child: Container(
+                    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        RaisedButton(
+          onPressed: () {},
+          elevation: 5.0,
+          highlightElevation: 2.0,
+          shape: RoundedRectangleBorder(borderRadius:  BorderRadius.circular(20.0)),
+          child: Text('Click Me'),
+        ),
+        FlatButton(onPressed: () {},
+            textColor: Colors.white,
 
-  RaisedButton buildRaisedButton(
-      ) {
-    return RaisedButton(
-      padding: EdgeInsets.all(
-          10.0
-          ),
-      child: Text(
-          'RaisedButton'
-          ),
-      color: Colors.white,
-      textColor: Colors.teal,
-      disabledColor: Colors.grey,
-      highlightElevation: 20.0,
-      highlightColor: Colors.white,
-      disabledTextColor: Colors.black87,
-      splashColor: Colors.orange,
-//                shape: CircleBorder(),
-      onPressed: (
-          ) {
-        print(
-            'RaisedButton'
-            );
-      },
-      );
+                       child: Text('click me'),
+                       color: Color(0xFFFF6633))
+      ],
+    )))));
   }
 }
