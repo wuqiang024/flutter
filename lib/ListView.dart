@@ -10,18 +10,29 @@ class ListViewPage extends StatelessWidget {
     return MaterialApp(
       title: 'ListView',
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('ListView'),
+        appBar: PreferredSize(
+          preferredSize: Size(double.infinity, 80),
+          child: AppBar(
+            title: Text('ListView'),
 
+          ),
         ),
-        body: ListView.separated(
-          itemCount: 100,
-          itemBuilder: (context, index) {
-            return ListTile(title: Text('$index'));
-          },
-          separatorBuilder: (context, index) {
-            return new Divider();
-          },
+        body: Column(
+          children: <Widget>[
+            ListTile(title: Text('商品列表')),
+            Expanded(
+                child:
+                ListView.separated(
+                  itemCount: 100,
+                  itemBuilder: (context, index) {
+                    return ListTile(title: Text('$index'));
+                  },
+                  separatorBuilder: (context, index) {
+                    return new Divider();
+                  },
+                ),
+            ),
+          ],
         )
       )
     );
