@@ -1,63 +1,66 @@
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(FutureBuilderPage());
 
-class MyApp extends StatefulWidget {
+class FutureBuilderPage extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _FutureBuilderPageState createState() => _FutureBuilderPageState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _FutureBuilderPageState extends State<FutureBuilderPage> {
   bool _showResult = false;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('title'),
-        ),
-        body: _body(),
-      ),
-    );
+        home: Scaffold(
+      appBar: AppBar(),
+      body: _body(),
+    ));
   }
 
   Widget _body() {
-    return Container(
-      alignment: Alignment.center,
+    return Center(
       child: FutureBuilder(
-        future: _showResult ? _fetch() : null,
+        future: _showResult ? _getData() : null,
         builder: (context, snapshot) {
+          print(snapshot.connectionState);
           switch(snapshot.connectionState) {
+
             case ConnectionState.none:
-                return RaisedButton(
-                  onPressed: () {
-                    setState(() {
-                      _showResult = true;
-                    });
-                  },
-                  child: Text('press'),
-                );
+              return RaisedButton(
+                onPressed: () {
+                  setState(() {
+                    _showResult = true;
+                  });
+                },
+                child: Text('开始'),
+              );
+              break;
             case ConnectionState.waiting:
               return CircularProgressIndicator();
+              break;
             case ConnectionState.done:
               if(snapshot.hasError) {
-                return Text('error');
-              } else  {
-                return Text('test');
+                return Container(
+                  child: Text('错误'),
+                );
+              } else {
+                return Container(
+                  child: Text('成功'),
+                );
               }
               break;
             default:
               break;
-
           }
         },
       ),
     );
   }
 
-  Future<Map> _fetch() async {
-    return (await Dio().get('https://jsonplaceholder.typicode.com/users/1')).data;
+  _getData() async {
+    await Future.delayed(Duration(seconds: 1));
   }
 }

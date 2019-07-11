@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(RecogonizerPage());
 
-class MyApp extends StatefulWidget {
+class RecogonizerPage extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _RecogonizerPageState createState() => _RecogonizerPageState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _RecogonizerPageState extends State<RecogonizerPage> {
   bool _toggle = true;
   TapGestureRecognizer _tapGestureRecognizer = new TapGestureRecognizer();
 

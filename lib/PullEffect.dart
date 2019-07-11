@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-void main() => runApp(MyApp());
+void main() => runApp(PullEffect());
 
-class MyApp extends StatefulWidget {
+class PullEffect extends StatefulWidget {
   @override
-  _MyAppState createState() => _MyAppState();
+  _PullEffectState createState() => _PullEffectState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _PullEffectState extends State<PullEffect> {
   ScrollController _controller;
   double _offset = 0.0;
   double _headerHeight = 200.0;

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(SwitchWidget());
+void main() => runApp(SwitchPage());
 
-class SwitchWidget extends StatefulWidget {
+class SwitchPage extends StatefulWidget {
   @override
-  _SwitchWidgetState createState() => _SwitchWidgetState();
+  _SwitchPageState createState() => _SwitchPageState();
 }
 
-class _SwitchWidgetState extends State<SwitchWidget> {
+class _SwitchPageState extends State<SwitchPage> {
   bool _switch = true;
   bool _checkbox = true;
 
