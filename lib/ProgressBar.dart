@@ -9,6 +9,7 @@ class ProgressWidget extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('test'),
+          centerTitle: true,
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,

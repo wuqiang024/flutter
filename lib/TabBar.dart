@@ -8,7 +8,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
-  PageController _pageController = new PageController();
   TabController _tabController;
   List<String> _tabs = ['首页', '客户', '交易', '我的'];
 
@@ -46,8 +45,8 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   }
 
   Widget _body() {
-    return PageView(
-      controller: _pageController,
+    return TabBarView(
+      controller: _tabController,
       children: _tabs.map((v) {
         return Container(
           child: Text('$v'),
